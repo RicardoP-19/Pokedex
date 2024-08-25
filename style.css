@@ -1,5 +1,50 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  scroll-behavior: smooth;
+body {
+  background-image: url(assets/img/background-img.jpg);
+  background-position: center calc(50% + 120px);
+  background-size: cover;
+  height: 100vh;
+}
+
+.header-main-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.headline-content {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+
+.headline {
+  background-image: url(assets/img/pikachu.png);
+  background-position-x: calc(50% - 37px);
+  background-size: contain;
+  font-size: 7em;
+  font-weight: 800;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+
+.input-content {
+  display: flex;
+  align-items: center;
+}
+
+input {
+  border-radius: 5px;
+  border: 1px solid gold;
+  background-color: transparent;
+  padding: 10px;
+  color: gold;
+  cursor: pointer;
+}
+
+input::placeholder {
+  color: white;
 }
