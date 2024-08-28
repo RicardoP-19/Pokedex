@@ -1,0 +1,74 @@
+.card-animation {
+  position: relative;
+  width: 250px;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 8px;
+  transition: 0.2s ease-in-out;
+}
+
+.card-animation:hover {
+  transform: scale(1.04);
+}
+
+.card-animation::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: linear-gradient(45deg, rgb(254, 254, 0), rgba(146, 146, 0, 0.744));
+  filter: blur(37px);
+  z-index: -1;
+  visibility: hidden;
+}
+
+.card-animation:hover::before {
+  visibility: visible;
+  animation: rotate 5s ease-in-out infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.card {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 235px;
+  height: 335px;
+  background-color: #ffe659;
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.card-content {
+  width: 100vw;
+  margin:9px;
+  background-image: url("/assets/img/cards/electric.jpg");
+  background-size: cover;
+  border-radius: 8px;
+}
+
+.card-head {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 6px;
+}
+
+.head-right {
+  display: flex;
+  align-items: center;
+}

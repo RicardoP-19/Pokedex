@@ -1,6 +1,6 @@
 body {
-  background-image: url(assets/img/background-img.jpg);
-  background-position: center calc(50% + 120px);
+  background-image: url("/assets/img/background-img.jpg");
+  background-position: center calc(50% + 130px);
   background-size: cover;
   height: 100vh;
 }
@@ -19,16 +19,16 @@ body {
 }
 
 .headline {
-  background-image: url(assets/img/pikachu.png);
-  background-position-x: calc(50% - 37px);
-  background-size: contain;
-  font-size: 7em;
-  font-weight: 800;
-  color: transparent;
+  background-image: url("/assets/img/pikachu.png");
+  background-position-x: calc(50% - 26px);
+  background-position-y: calc(50% + 20px);
+  background-size: cover;
   background-clip: text;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-align: center;
+  font-size: 9vw;
+  font-weight: 900;
+  color: transparent;
+  font-family: "Luckiest Guy", cursive;
 }
 
 .input-content {
@@ -47,4 +47,8 @@ input {
 
 input::placeholder {
   color: white;
+}
+
+.main-content {
+  padding-top: 4%;
 }
