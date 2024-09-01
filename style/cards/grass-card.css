@@ -21,7 +21,7 @@
   left: -5px;
   right: -5px;
   bottom: -5px;
-  background: linear-gradient(45deg, rgb(254, 254, 0), rgba(146, 146, 0, 0.744));
+  background: linear-gradient(45deg, rgb(0, 254, 0), rgba(5, 146, 0, 0.744));
   filter: blur(37px);
   z-index: -1;
   visibility: hidden;
@@ -57,18 +57,44 @@
 .card-content {
   width: 100vw;
   margin:9px;
-  background-image: url("/assets/img/cards/electric.jpg");
+  background-image: url("/assets/img/cards/water.jpg");
   background-size: cover;
   border-radius: 8px;
 }
 
 .card-head {
-  display: flex;
-  justify-content: space-between;
   padding-top: 6px;
 }
 
 .head-right {
   display: flex;
   align-items: center;
+}
+
+.card-image {
+  border: 6px outset;
+  filter: drop-shadow(9px 4px 7px black);
+  border-radius: 4px;
+  margin-top: 12px;
+  width: 90%;
+  height: 20vh;
+}
+
+.card-image img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.card-infos {
+  margin-top: 27px;
+}
+
+.card-typ {
+  border: 2px outset rgb(23, 22, 22);
+  background: linear-gradient(45deg, #dcdbdb 20%, #a1a1a1 90%);
+  padding: 2%;
+  margin: 2%;
+  border-radius: 4px;
 }

@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="style/standard.css" />
-    <link rel="stylesheet" href="style/fonts.css">
-    <link rel="stylesheet" href="style/cards/electro-card.css">
+    <link rel="stylesheet" href="style/fonts.css" />
+    <link rel="stylesheet" href="style/cards/grass-card.css" />
     <script src="script.js"></script>
+    <script src="scripts/templates.js"></script>
     <title>Pokedex</title>
   </head>
 
-  <body>
+  <body onload="init()">
     <div class="content">
       <header>
         <div class="header-main-content">
@@ -25,20 +26,8 @@
       </header>
 
       <main>
-        <section class="main-content">
-          <div class="card-animation">
-            <div class="card">
-              <div class="card-content">
-                <div class="card-head">
-                  <span>Name</span>
-                  <div class="head-right">
-                    <span>Punkte</span>
-                    <img src="#">
-                  </div>
-                </div>
-              </div>
-            </div>            
-          </div>
+        <section id="pokemon" class="main-content">
+
         </section>
       </main>
     </div>
