@@ -1,6 +1,7 @@
 let allPokemons = [];
-
-const BASE_URL = `https://pokeapi.co/api/v2/pokemon?limit=10&offset=0`;
+let offset = 0;
+let limit = 30;
+let BASE_URL = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`;
 
 
 function init() {
@@ -14,19 +15,19 @@ async function fetchPokemonApi() {
     if (response.ok) {
      let responseAsJson = await response.json();
      await iteratePokemonJson(responseAsJson);
-    }
+    };
   } catch (error) {
     console.error(error);    
-  }
+  };
+  offset += limit;
+  BASE_URL = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`;
 }
 
 
 async function iteratePokemonJson(responseAsJson) {
   let pokemonsArray = responseAsJson.results;
   for (let index = 0; index < pokemonsArray.length; index++) {
-    if (allPokemons.length < pokemonsArray.length) {
-      await pokemonFetchUrl(pokemonsArray[index].url);
-    }
+    await pokemonFetchUrl(pokemonsArray[index].url);
   };
   renderPokemon();
 }
@@ -39,7 +40,7 @@ async function pokemonFetchUrl(url) {
     pokemonDataUrl(pokemonData);
   } catch (error) {
     console.log(error);      
-  }
+  };
 }
 
 
@@ -48,7 +49,7 @@ function pokemonDataUrl(pokemonData) {
     name : pokemonData.name,
     image : pokemonData.sprites.other['official-artwork'].front_default,
     types: pokemonData.types.map(typeInfo => typeInfo.type.name),
-    moves: pokemonData.moves.map(moveInfo => moveInfo.move.name),
+    // moves: pokemonData.moves.map(moveInfo => moveInfo.move.name),
   };
   pokemonAllInfos(pokemonRenderInfo);
 }
@@ -64,5 +65,10 @@ function renderPokemon() {
   newPokemon.innerHTML = '';
   for (let index = 0; index < allPokemons.length; index++) {
     newPokemon.innerHTML += returnHTMLPokemon(index);
-  }
+  };
+}
+
+
+function name(params) {
+  
 }

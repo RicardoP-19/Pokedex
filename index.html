@@ -20,7 +20,8 @@
             <div class="headline">Pokedex</div>
           </div>
           <div class="input-content">
-            <input placeholder="Search Pokemon..." type="text" />
+            <input id="input" placeholder="Search Pokemon..." type="search"/>
+            <!-- <img src="/assets/icons/search.png" alt=""> -->
           </div>
         </div>
       </header>
@@ -29,6 +30,9 @@
         <section id="pokemon" class="main-content">
 
         </section>
+        <div class="btn-container">
+          <button onclick="fetchPokemonApi()">More Pokemons</button>
+        </div>
       </main>
     </div>
   </body>

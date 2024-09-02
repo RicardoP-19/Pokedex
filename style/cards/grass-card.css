@@ -8,6 +8,7 @@
   overflow: hidden;
   border-radius: 8px;
   transition: 0.2s ease-in-out;
+  margin-bottom: 20px;
 }
 
 .card-animation:hover {
@@ -57,13 +58,17 @@
 .card-content {
   width: 100vw;
   margin:9px;
-  background-image: url("/assets/img/cards/water.jpg");
+  background-image: url("/assets/img/cards/grass.jpg");
   background-size: cover;
   border-radius: 8px;
 }
 
 .card-head {
+  display: flex;
+  justify-content: space-between;
   padding-top: 6px;
+  color: white;
+  filter: drop-shadow(5px 5px 5px black);
 }
 
 .head-right {

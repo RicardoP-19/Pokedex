@@ -5,9 +5,9 @@ function returnHTMLPokemon(index) {
           <div class="card-content">
             <div class="card-head">
               <h3>${allPokemons[index].name}</h3>
-              <div class="head-right">
-                    <!-- <span>Punkte</span> -->
-              </div>
+              <span class="head-right">
+                ${allPokemons[index].types}
+              </span>
             </div>
             <div class="card-image">
               <img src="${allPokemons[index].image}"/>
@@ -17,7 +17,7 @@ function returnHTMLPokemon(index) {
                 <span>Types</span>
               </div>
               <!-- ${allPokemons[index].moves} -->
-              ${allPokemons[index].types}
+              <!-- ${allPokemons[index].specis} -->
             </div>
           </div>
         </div>
