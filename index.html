@@ -3,11 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="assets/icons/charmander.png"/>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="style/standard.css" />
     <link rel="stylesheet" href="style/fonts.css" />
     <link rel="stylesheet" href="style/cards/grass-card.css" />
-    <script src="script.js"></script>
+    <script defer src="script.js"></script>
     <script src="scripts/templates.js"></script>
     <title>Pokedex</title>
   </head>
@@ -20,19 +21,24 @@
             <div class="headline">Pokedex</div>
           </div>
           <div class="input-content">
-            <input id="input" placeholder="Search Pokemon..." type="search"/>
-            <!-- <img src="/assets/icons/search.png" alt=""> -->
+            <input id="searchPokemon" placeholder="Search Pokemon..." type="text"/>
           </div>
         </div>
       </header>
 
       <main>
-        <section id="pokemon" class="main-content">
-
+        <section id="mainSection">
+          <div id="pokemon" class="main-content"></div>
+          <div class="btn-container">
+            <button onclick="fetchPokemonApi()">More Pokemons</button>
+          </div>
         </section>
-        <div class="btn-container">
-          <button onclick="fetchPokemonApi()">More Pokemons</button>
-        </div>
+        <section id="searchSection" class="d-none">
+          <div id="searchList" class="main-content"></div>
+          <div class="btn-container">
+            <button onclick="backToStart()">Back To Start</button>
+          </div>
+        </section>
       </main>
     </div>
   </body>
