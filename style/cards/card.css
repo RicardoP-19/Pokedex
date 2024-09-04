@@ -1,0 +1,71 @@
+.card {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 235px;
+  height: 335px;
+  background-color: #ffe659;
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 2;
+  cursor: pointer;
+}
+
+/* .card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100vw;
+  margin: 9px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  filter: drop-shadow(0px 0px 1px black);
+}
+
+.card-content:hover {
+  background-image: url(/assets/gifs/grass.gif);
+} */
+
+.card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding-top: 12px;
+  color: white;
+  filter: drop-shadow(5px 5px 4px black);
+}
+
+.head-right {
+  display: flex;
+  align-items: center;
+}
+
+.card-image {
+  border: 6px outset;
+  filter: drop-shadow(9px 4px 7px black);
+  border-radius: 4px;
+  margin-top: 12px;
+  width: 90%;
+  height: 20vh;
+}
+
+.card-image img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.card-infos {
+  margin-top: 27px;
+}
+
+.card-typ {
+  border: 2px outset rgb(23, 22, 22);
+  background: linear-gradient(45deg, #dcdbdb 20%, #a1a1a1 90%);
+  padding: 2%;
+  margin: 2%;
+  border-radius: 4px;
+}

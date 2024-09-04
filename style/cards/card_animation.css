@@ -1,0 +1,115 @@
+.card-animation {
+  position: relative;
+  width: 250px;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 8px;
+  transition: 0.2s ease-in-out;
+  margin-bottom: 20px;
+}
+
+.card-animation:hover {
+  transform: scale(1.04);
+}
+
+.card-animation::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  filter: blur(37px);
+  z-index: -1;
+  visibility: hidden;
+}
+
+.card-animation.bga_grass:hover::before {
+  background: linear-gradient(45deg, rgb(173, 249, 173), rgba(8, 252, 0, 0.744));
+  visibility: visible;
+  animation: rotate 5s ease-in-out infinite;
+}
+
+.card-animation.bga_fire:hover::before {
+  background: linear-gradient(45deg, rgb(249, 156, 156), rgb(255, 1, 1));
+  visibility: visible;
+  animation: rotate 5s ease-in-out infinite;  
+}
+
+.card-animation.bga_water:hover::before {
+  background: linear-gradient(45deg, rgb(163, 225, 252), rgb(0, 179, 255));
+  visibility: visible;
+  animation: rotate 5s ease-in-out infinite;  
+}
+
+.card-animation.bga_bug:hover::before {
+  background: linear-gradient(45deg, #80f695, #C2F4CB);
+  visibility: visible;
+  animation: rotate 5s ease-in-out infinite;  
+}
+
+.card-animation.bga_flying:hover::before {
+  background: linear-gradient(45deg, rgb(143, 218, 249), rgb(59, 215, 254));
+  visibility: visible;
+  animation: rotate 5s ease-in-out infinite;  
+}
+
+.card-animation.bga_normal:hover::before {
+  background: linear-gradient(45deg, #DCD4CF, #74706d);
+  visibility: visible;
+  animation: rotate 5s ease-in-out infinite;  
+}
+
+.card-animation.bga_poison:hover::before {
+  background: linear-gradient(45deg, #4255e3, #a529e7);
+  visibility: visible;
+  animation: rotate 5s ease-in-out infinite;  
+}
+
+.card-animation.bga_electric:hover::before {
+  background: linear-gradient(45deg, rgb(249, 249, 145), rgb(255, 255, 0));
+  visibility: visible;
+  animation: rotate 5s ease-in-out infinite;  
+}
+
+.card-animation.bga_fairy:hover::before {
+  background: linear-gradient(45deg, rgb(248, 202, 210), rgb(247, 164, 178));
+  visibility: visible;
+  animation: rotate 5s ease-in-out infinite;  
+}
+
+.card-animation.bga_fighting:hover::before {
+  background: linear-gradient(45deg, white, rgb(255, 88, 88));
+  visibility: visible;
+  animation: rotate 5s ease-in-out infinite;  
+}
+
+.card-animation.bga_psychic:hover::before {
+  background: linear-gradient(45deg, #f82a80, #8d7171);
+  visibility: visible;
+  animation: rotate 5s ease-in-out infinite;  
+}
+
+.card-animation.bga_rock:hover::before {
+  background: linear-gradient(45deg, rgb(255, 255, 255), rgb(138, 138, 138));
+  visibility: visible;
+  animation: rotate 5s ease-in-out infinite;  
+}
+
+.card-animation.bga_ghost:hover::before {
+  background: linear-gradient(45deg, #f73bdb, #a32690);
+  visibility: visible;
+  animation: rotate 5s ease-in-out infinite;  
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,87 @@
+.card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100vw;
+  margin: 9px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  filter: drop-shadow(0px 0px 1px black);
+}
+
+/* .card-content:hover {
+  background-image: url(/assets/gifs/grass.gif);
+} */
+
+.card-content:hover.bgi_grass {
+  background-image: url(/assets/gifs/grass.gif);
+}
+
+.card-content:hover.bgi_fire {
+  background-image: url(/assets/gifs/fire.gif);
+}
+
+.card-content:hover.bgi_water {
+  background-image: url(/assets/gifs/water.gif);
+}
+
+.card-content:hover.bgi_bug {
+  background-image: url(/assets/gifs/bug.gif);
+}
+
+.card-content:hover.bgi_flying {
+  background-image: url(/assets/gifs/sky.gif);
+}
+
+.card-content:hover.bgi_normal {
+  background-image: url(/assets/gifs/normal.gif);
+}
+
+.card-content:hover.bgi_poison {
+  background-image: url(/assets/gifs/poison.gif);
+}
+
+.card-content:hover.bgi_electric {
+  background-image: url(/assets/gifs/electric.gif);
+}
+
+.card-content:hover.bgi_ground {
+  background-image: url(/assets/gifs/ground.gif);
+}
+
+.card-content:hover.bgi_fairy {
+  background-image: url(/assets/gifs/fairy.gif);
+}
+
+.card-content:hover.bgi_fighting {
+  background-image: url(/assets/gifs/fighting.gif);
+}
+
+.card-content:hover.bgi_psychic {
+  background-image: url(/assets/gifs/circles.gif);
+}
+
+.card-content:hover.bgi_rock {
+  background-image: url(/assets/gifs/rock.gif);
+}
+
+.card-content:hover.bgi_ghost {
+  background-image: url(/assets/gifs/ghost.gif);
+}
+
+.card-content:hover.bgi_ice {
+  background-image: url(/assets/gifs/ice.gif);
+}
+
+.card-content:hover.bgi_dragon {
+  background-image: url(/assets/gifs/dragon.gif);
+}
+
+.card-content:hover.bgi_dark {
+  background-image: url(/assets/gifs/dark.gif);
+}
+
+.card-content:hover.bgi_steel {
+  background-image: url(/assets/gifs/rock.gif);
+}
