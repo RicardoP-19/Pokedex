@@ -3,14 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="assets/icons/charmander.png"/>
+    <link rel="icon" type="image/png" href="assets/icons/charmander.png" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="style/standard.css" />
     <link rel="stylesheet" href="style/fonts.css" />
     <link rel="stylesheet" href="style/cards/card.css" />
-    <link rel="stylesheet" href="style/cards/background_card.css">
-    <link rel="stylesheet" href="style/cards/card_animation.css">
-    <link rel="stylesheet" href="style/cards/gif_animation.css">
+    <link rel="stylesheet" href="style/cards/background_card.css" />
+    <link rel="stylesheet" href="style/cards/card_animation.css" />
+    <link rel="stylesheet" href="style/cards/gif_animation.css" />
+    <link rel="stylesheet" href="style/overlay.css" />
     <script defer src="script.js"></script>
     <script src="scripts/templates.js"></script>
     <title>Pokedex</title>
@@ -24,7 +25,11 @@
             <div class="headline">Pokedex</div>
           </div>
           <div class="input-content">
-            <input id="searchPokemon" placeholder="Search Pokemon..." type="text"/>
+            <input
+              id="searchPokemon"
+              placeholder="Search Pokemon..."
+              type="text"
+            />
           </div>
         </div>
       </header>
@@ -40,6 +45,37 @@
           <div id="searchList" class="main-content"></div>
           <div class="btn-container">
             <button onclick="backToStart()">Back To Start</button>
+          </div>
+        </section>
+        <section>
+          <div id="overlay" class="overlay, d-none">
+            <div onclick="closeOverlay()" id="close" class="overlay-image"></div>
+            <div id="overlayCard" class="overlay-content">
+              <!-- <div><img src="/assets/icons/left.png" /></div>
+              <div>
+                <div class="card">
+                  <div class="card-content">
+                    <div class="card-head">
+                      <h2>${allPokemons[index].name}</h2>
+                      <span class="head-right">
+                        ${allPokemons[index].types.join(' ')}
+                      </span>
+                    </div>
+                    <div class="card-image">
+                      <img src="${allPokemons[index].image}" />
+                    </div>
+                    <div class="card-infos">
+                      <div class="card-typ">
+                      <span>Types</span>
+                    </div>
+                      ${allPokemons[index].moves}
+                      ${allPokemons[index].specis}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div><img src="/assets/icons/right.png" /></div> -->
+            </div>
           </div>
         </section>
       </main>

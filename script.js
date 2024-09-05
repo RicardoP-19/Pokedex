@@ -40,7 +40,7 @@ async function pokemonFetchUrl(url) {
     let pokemonData = await pokemonDetails.json();
     pokemonDataUrl(pokemonData);
   } catch (error) {
-    console.log(error);      
+    console.error(error);      
   };
 }
 
@@ -109,4 +109,34 @@ function inputValueMinize() {
   document.getElementById('searchSection').classList.add('d-none');
   document.getElementById('mainSection').classList.remove('d-none');
   renderPokemon();
+}
+
+
+function openOverlayCard(index) {
+  let card = document.getElementById('overlayCard');
+  document.getElementById('overlay').classList.remove('d-none');
+  card.innerHTML = returnHTMLOverlayCard(index);
+}
+
+
+function nextCard(index, num) {
+  if (num === 2) { 
+    if (index < allPokemons.length - 1) {
+      index++;
+    } else {
+      index = 0;
+    }
+  } else if (num === 1) {
+    if (index <= 0) {
+      index = allPokemons.length - 1;
+    } else {
+      index--;
+    }
+  }
+  openOverlayCard(index)
+}
+
+
+function closeOverlay() {
+  document.getElementById('overlay').classList.add('d-none');
 }
