@@ -1,9 +1,9 @@
 .card-content {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   width: 100vw;
   margin: 9px;
+  gap: 10px;
   background-size: cover;
   background-position: center;
   border-radius: 8px;

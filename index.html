@@ -20,7 +20,7 @@
   <body onload="init()">
     <div class="content">
       <header>
-        <div class="header-main-content">
+        <div id="header" class="header-main-content">
           <div class="headline-content">
             <div class="headline">Pokedex</div>
           </div>
@@ -48,33 +48,9 @@
           </div>
         </section>
         <section>
-          <div id="overlay" class="overlay, d-none">
-            <div onclick="closeOverlay()" id="close" class="overlay-image"></div>
-            <div id="overlayCard" class="overlay-content">
-              <!-- <div><img src="/assets/icons/left.png" /></div>
-              <div>
-                <div class="card">
-                  <div class="card-content">
-                    <div class="card-head">
-                      <h2>${allPokemons[index].name}</h2>
-                      <span class="head-right">
-                        ${allPokemons[index].types.join(' ')}
-                      </span>
-                    </div>
-                    <div class="card-image">
-                      <img src="${allPokemons[index].image}" />
-                    </div>
-                    <div class="card-infos">
-                      <div class="card-typ">
-                      <span>Types</span>
-                    </div>
-                      ${allPokemons[index].moves}
-                      ${allPokemons[index].specis}
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div><img src="/assets/icons/right.png" /></div> -->
+          <div id="overlay" class="d-none">
+            <div id="overlayCard" class="overlay-image">
+             
             </div>
           </div>
         </section>
@@ -82,3 +58,4 @@
     </div>
   </body>
 </html>
+<!-- onclick="closeOverlay()"  -->

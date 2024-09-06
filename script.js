@@ -20,6 +20,11 @@ async function fetchPokemonApi() {
   } catch (error) {
     console.error(error);    
   };
+  setLimitHigh()
+}
+
+
+function setLimitHigh() {
   offset += limit;
   BASE_URL = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`;
 }
@@ -38,19 +43,46 @@ async function pokemonFetchUrl(url) {
   try {
     let pokemonDetails = await fetch(url);
     let pokemonData = await pokemonDetails.json();
-    pokemonDataUrl(pokemonData);
+    await speciesFetch(pokemonData);    
   } catch (error) {
     console.error(error);      
   };
 }
 
 
-function pokemonDataUrl(pokemonData) {
+async function speciesFetch(pokemonData) {
+  // let url = pokemonData.species.url
+  let id = pokemonData.id
+  try {
+    let evolutionDetails = await fetch(`https://pokeapi.co/api/v2/evolution-chain/${id}/`);        
+    let pokemonEvolution = await evolutionDetails.json();
+    await evolutionFetch(pokemonData, pokemonEvolution);
+  } catch (error) {
+    console.error(error); 
+  }  
+}
+
+
+async function evolutionFetch(pokemonData, pokemonEvolution) {
+  // let evolutionUrl = pokemonEvolution.evolution_chain.url;
+  let evolutionUrl = pokemonEvolution.chain.species.url;
+  try {
+    let chainDetails = await fetch(evolutionUrl);
+    let evolution = await chainDetails.json();
+    await pokemonDataUrl(pokemonData, evolution);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+
+function pokemonDataUrl(pokemonData, evolution) {
   let pokemonRenderInfo = {
     name : pokemonData.name,
     image : pokemonData.sprites.other['official-artwork'].front_default,
+    evolution: evolution.evolution_chain.url,
+    // species: pokemonEvolution.map(speciesInfo => pokemonEvolution.chain.evolves_to[i].species.url),  
     types: pokemonData.types.map(typeInfo => typeInfo.type.name),
-    // moves: pokemonData.moves.map(moveInfo => moveInfo.move.name),
   };
   pokemonAllInfos(pokemonRenderInfo);
 }
@@ -114,6 +146,8 @@ function inputValueMinize() {
 
 function openOverlayCard(index) {
   let card = document.getElementById('overlayCard');
+  document.getElementById('header').classList.add('d-none');
+  document.getElementById('mainSection').classList.add('d-none');
   document.getElementById('overlay').classList.remove('d-none');
   card.innerHTML = returnHTMLOverlayCard(index);
 }
@@ -139,4 +173,41 @@ function nextCard(index, num) {
 
 function closeOverlay() {
   document.getElementById('overlay').classList.add('d-none');
+  document.getElementById('header').classList.remove('d-none');
+  document.getElementById('mainSection').classList.remove('d-none');
+}
+
+
+function openInfo(index, num) {
+  if (num == 1) {
+    openAboutContent();
+  } if (num == 2) {
+    openStatsContent();
+  } if (num == 3) {
+    openEvolutionContent();
+  };
+}
+
+
+function openAboutContent() {
+  document.getElementById('about').classList.remove('d-none');
+  document.getElementById('about').classList.add('box-animation');
+  document.getElementById('stats').classList.add('d-none');
+  document.getElementById('evolution').classList.add('d-none');
+}
+
+
+function openStatsContent() {
+  document.getElementById('about').classList.add('d-none');
+  document.getElementById('stats').classList.remove('d-none');
+  document.getElementById('stats').classList.add('box-animation');
+  document.getElementById('evolution').classList.add('d-none');
+}
+
+
+function openEvolutionContent() {
+  document.getElementById('about').classList.add('d-none');
+  document.getElementById('stats').classList.add('d-none');
+  document.getElementById('evolution').classList.remove('d-none');
+  document.getElementById('evolution').classList.add('box-animation');
 }

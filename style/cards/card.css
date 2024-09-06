@@ -27,12 +27,12 @@
 }
 
 .card-image {
-  border: 6px outset;
+  border: 6px groove #c9c9ca;
+  border-radius: 9px;
   filter: drop-shadow(9px 4px 7px black);
-  border-radius: 4px;
-  margin-top: 12px;
+  margin-top: 20px;
   width: 90%;
-  height: 20vh;
+  height: 19vh;
 }
 
 .card-image img {
@@ -42,14 +42,17 @@
   height: 100%;
 }
 
-.card-infos {
-  margin-top: 27px;
+.card-info {
+  width: 90%;
+  height: 8%;
+  padding-top: 36px;
 }
 
-.card-typ {
-  border: 2px outset rgb(23, 22, 22);
-  background: linear-gradient(45deg, #dcdbdb 20%, #a1a1a1 90%);
-  padding: 2%;
-  margin: 2%;
-  border-radius: 4px;
+.pokemon-info {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  color: white;
+  text-align: center;
+  filter: drop-shadow(5px 5px 4px black);
 }
