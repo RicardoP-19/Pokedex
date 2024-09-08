@@ -79,12 +79,13 @@ function returnHTMLOverlayCard(index) {
                   test
                 </div>
                 <div id="stats" class="d-none">
-                  test2
+                  <span>${allPokemons[index].stats}</span>
+                  <span>${allPokemons[index].base_stat}</span>
                 </div>
                 <div id="evolution" class="d-none">
-                  <img src="${allPokemons[index].firstEvolution}"/>
-                  <img src="${allPokemons[index].secondEvolution}"/>
-                  <img src="${allPokemons[index].lastEvolution}"/>
+                  <img src="${evolutionImage[0]}"/>
+                  <img src="${evolutionImage[1]}"/>
+                  <img src="${evolutionImage[2]}"/>
                 </div>
               </div>
             </div>

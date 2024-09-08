@@ -1,8 +1,10 @@
 let allPokemons = [];
 let searchPokemon = [];
+let pokemonObjekt = [];
 let evolutionUrls = [];
+let evolutionImage = [];
 let offset = 0;
-let limit = 30;
+let limit = 5;
 let BASE_URL = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`;
 
 
@@ -40,70 +42,73 @@ async function iteratePokemonJson(responseAsJson) {
 }
 
 
-async function pokemonFetchUrl(url) {
+async function pokemonFetchUrl(url) { //es wird jeder index gefetcht jedes mal enstehen 3 bilder
   try {
     let pokemonDetails = await fetch(url);
     let pokemonData = await pokemonDetails.json();
-    await speciesFetch(pokemonData);    
+    pokemonObjekt.push(pokemonData);
+    await speciesFetch(pokemonData); 
   } catch (error) {
     console.error(error);      
-  };
+  }; 
 }
 
 
 async function speciesFetch(pokemonData) {
-  // let id = pokemonData.id;
   let url = pokemonData.species.url;
   try {
-    // let evolutionDetails = await fetch(`https://pokeapi.co/api/v2/evolution-chain/${id}/`);
     let evolutionDetails = await fetch(url);      
     let pokemonEvolutionUrl = await evolutionDetails.json();
     let chainUrl = await fetch(pokemonEvolutionUrl.evolution_chain.url)
-    let pokemonEvolution = await chainUrl.json();    
-    await evolutionUrlsPushToArray(pokemonData, pokemonEvolution)
+    let pokemonEvolution = await chainUrl.json();
+    evolutionUrlsPushToArray(pokemonEvolution)
   } catch (error) {
     console.error(error); 
   }  
 }
 
 
-function evolutionUrlsPushToArray(pokemonData, pokemonEvolution) {
+function evolutionUrlsPushToArray(pokemonEvolution) {
   let firstEvolution = pokemonEvolution.chain.species.url;
-  evolutionUrls.push(firstEvolution)
+  evolutionUrls.push(firstEvolution);
   if (pokemonEvolution.chain.evolves_to.length > 0) {
     let secondEvolution = pokemonEvolution.chain.evolves_to[0].species.url;
-    evolutionUrls.push(secondEvolution)
+    evolutionUrls.push(secondEvolution);
+    if (pokemonEvolution.chain.evolves_to[0].evolves_to.length > 0) {
+      let lastEvolution = pokemonEvolution.chain.evolves_to[0].evolves_to[0].species.url;
+      evolutionUrls.push(lastEvolution);
+    }
   }
-   if (pokemonEvolution.chain.evolves_to[0].evolves_to.length > 0) {
-    let lastEvolution = pokemonEvolution.chain.evolves_to[0].evolves_to[0].species.url;
-    evolutionUrls.push(lastEvolution)
-  }
-  // evolutionFetch(pokemonData);
-  pokemonDataUrl(pokemonData, evolutionUrls)
+  urlFetch();
 }
 
 
-// async function evolutionFetch(pokemonData) {
-//   let urls = evolutionUrls;
-//   try {
-//     let promises = urls.map(url => fetch(url));
-//     let response = await Promise.all(promises);
-//     let evolution = await Promise.all(response.map(response => response.json()))
-//     await pokemonDataUrl(pokemonData, evolution);
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
+async function urlFetch() {
+  for (let index = 0; index < evolutionUrls.length; index++) {
+    let url = evolutionUrls[index];
+    try {
+      response = await fetch(url);
+      responseToJson = await response.json();
+      let responseTwo = await fetch(responseToJson.varieties[0].pokemon.url);
+      let responseTeJson = await responseTwo.json();
+      let image = responseTeJson.sprites.other['official-artwork'].front_default;
+      evolutionImage.push(image);
+      } catch (error) {
+        console.error(error);
+    };    
+  };
+  pokemonDataUrl();
+}
 
 
-function pokemonDataUrl(pokemonData, evolutionUrls) {
+function pokemonDataUrl() {
+  let pokemonInfo = pokemonObjekt;
   let pokemonRenderInfo = {
-    name : pokemonData.name,
-    image : pokemonData.sprites.other['official-artwork'].front_default,
-    firstEvolution: evolutionUrls[0],
-    secondEvolution: evolutionUrls[1],
-    lastEvolution: evolutionUrls[2],    
-    types: pokemonData.types.map(typeInfo => typeInfo.type.name),
+    name : pokemonInfo[0].name,
+    image : pokemonInfo[0].sprites.other['official-artwork'].front_default,
+    types: pokemonInfo[0].types.map(typeInfo => typeInfo.type.name),
+    stats: pokemonInfo[0].stats.map(statsInfo => statsInfo.stat.name),
+    base_stat: pokemonInfo[0].stats.map(statsInfo => statsInfo.base_stat)
   };
   pokemonAllInfos(pokemonRenderInfo);
 }
