@@ -1,10 +1,9 @@
 let allPokemons = [];
 let searchPokemon = [];
 let pokemonObjekt = [];
-let evolutionUrls = [];
 let evolutionImage = [];
 let offset = 0;
-let limit = 5;
+let limit = 30;
 let BASE_URL = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`;
 
 
@@ -42,15 +41,15 @@ async function iteratePokemonJson(responseAsJson) {
 }
 
 
-async function pokemonFetchUrl(url) { //es wird jeder index gefetcht jedes mal enstehen 3 bilder
+async function pokemonFetchUrl(url) {
   try {
     let pokemonDetails = await fetch(url);
     let pokemonData = await pokemonDetails.json();
-    pokemonObjekt.push(pokemonData);
-    await speciesFetch(pokemonData); 
+    pokemonDataUrl(pokemonData);
+    await speciesFetch(pokemonData);
   } catch (error) {
     console.error(error);      
-  }; 
+  };
 }
 
 
@@ -59,56 +58,63 @@ async function speciesFetch(pokemonData) {
   try {
     let evolutionDetails = await fetch(url);      
     let pokemonEvolutionUrl = await evolutionDetails.json();
-    let chainUrl = await fetch(pokemonEvolutionUrl.evolution_chain.url)
-    let pokemonEvolution = await chainUrl.json();
-    evolutionUrlsPushToArray(pokemonEvolution)
+    chainFetchUrls(pokemonEvolutionUrl)
   } catch (error) {
     console.error(error); 
   }  
 }
 
 
-function evolutionUrlsPushToArray(pokemonEvolution) {
-  let firstEvolution = pokemonEvolution.chain.species.url;
-  evolutionUrls.push(firstEvolution);
-  if (pokemonEvolution.chain.evolves_to.length > 0) {
-    let secondEvolution = pokemonEvolution.chain.evolves_to[0].species.url;
-    evolutionUrls.push(secondEvolution);
-    if (pokemonEvolution.chain.evolves_to[0].evolves_to.length > 0) {
-      let lastEvolution = pokemonEvolution.chain.evolves_to[0].evolves_to[0].species.url;
-      evolutionUrls.push(lastEvolution);
+async function chainFetchUrls(pokemonEvolutionUrl) {
+  try {
+    let chainResponse = await fetch(pokemonEvolutionUrl.evolution_chain.url);
+    let chainData = await chainResponse.json();
+    evolutionUrls(chainData);
+  } catch (error) {
+    console.error(error);    
+  };
+}
+
+
+async function evolutionUrls(chainData) {
+  let speciesUrl = chainData.chain.species.url;
+  await fetchPokemonImage(speciesUrl);
+
+  if (chainData.chain.evolves_to.length > 0) {
+    let speciesUrl = chainData.chain.evolves_to[0].species.url;
+    await fetchPokemonImage(speciesUrl);
+    
+    if (chainData.chain.evolves_to[0].evolves_to.length > 0) {
+      let speciesUrl = chainData.chain.evolves_to[0].evolves_to[0].species.url;
+      await fetchPokemonImage(speciesUrl);
     }
   }
-  urlFetch();
 }
 
 
-async function urlFetch() {
-  for (let index = 0; index < evolutionUrls.length; index++) {
-    let url = evolutionUrls[index];
-    try {
-      response = await fetch(url);
-      responseToJson = await response.json();
-      let responseTwo = await fetch(responseToJson.varieties[0].pokemon.url);
-      let responseTeJson = await responseTwo.json();
-      let image = responseTeJson.sprites.other['official-artwork'].front_default;
-      evolutionImage.push(image);
-      } catch (error) {
-        console.error(error);
-    };    
-  };
-  pokemonDataUrl();
+async function fetchPokemonImage(speciesUrl) {
+  try {
+    let speciesResponse = await fetch(speciesUrl);
+    let speciesData = await speciesResponse.json();
+    let pokemonId = speciesData.id;
+    let pokemonResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}/`);
+    let pokemonData = await pokemonResponse.json();
+    evolutionImage.push(pokemonData.sprites.other['official-artwork'].front_default);
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 
-function pokemonDataUrl() {
-  let pokemonInfo = pokemonObjekt;
+function pokemonDataUrl(pokemonData) {
+  let pokemonInfo = pokemonData;
   let pokemonRenderInfo = {
-    name : pokemonInfo[0].name,
-    image : pokemonInfo[0].sprites.other['official-artwork'].front_default,
-    types: pokemonInfo[0].types.map(typeInfo => typeInfo.type.name),
-    stats: pokemonInfo[0].stats.map(statsInfo => statsInfo.stat.name),
-    base_stat: pokemonInfo[0].stats.map(statsInfo => statsInfo.base_stat)
+    name : pokemonInfo.name,
+    image : pokemonInfo.sprites.other['official-artwork'].front_default,
+    types: pokemonInfo.types.map(typeInfo => typeInfo.type.name),
+    stats: pokemonInfo.stats.map(statsInfo => statsInfo.stat.name),
+    base_stat: pokemonInfo.stats.map(statsInfo => statsInfo.base_stat),
+    evolutionImages: []
   };
   pokemonAllInfos(pokemonRenderInfo);
 }
