@@ -1,16 +1,16 @@
 function returnHTMLPokemon(index) {
   return /*html*/`
-      <div class="card-animation bga_${allPokemons[index].types[0]}">
+      <div class="card-animation bga_${allPokemons[index][0].types[0]}">
         <div onclick="openOverlayCard(${index})" class="card">
-          <div class="card-content bgi_${allPokemons[index].types[0]}">
+          <div class="card-content bgi_${allPokemons[index][0].types[0]}">
             <div class="card-head">
-              <h2>${allPokemons[index].name}</h2>
+              <h2>${allPokemons[index][0].name}</h2>
               <span class="head-right">
-                ${allPokemons[index].types.join(' ')}
+                ${allPokemons[index][0].types.join(' ')}
               </span>
             </div>
             <div class="card-image">
-              <img src="${allPokemons[index].image}"/>
+              <img src="${allPokemons[index][0].image}"/>
             </div>
             <div class="card-info">
               <div class="pokemon-info">
@@ -28,17 +28,17 @@ function returnHTMLPokemon(index) {
 
 function returnSearchHTMLPokemon(index) {
   return /*html*/`
-      <div class="card-animation bga_${searchPokemon[index].types[0]}">
+      <div class="card-animation bga_${searchPokemon[index][0].types[0]}">
         <div onclick="openOverlayCard(${index})" class="card">
-          <div class="card-content bgi_${searchPokemon[index].types[0]}">
+          <div class="card-content bgi_${searchPokemon[index][0].types[0]}">
             <div class="card-head">
-              <h3>${searchPokemon[index].name}</h3>
+              <h3>${searchPokemon[index][0].name}</h3>
               <span class="head-right">
-                ${searchPokemon[index].types.join(' ')}
+                ${searchPokemon[index][0].types.join(' ')}
               </span>
             </div>
             <div class="card-image">
-              <img src="${searchPokemon[index].image}"/>
+              <img src="${searchPokemon[index][0].image}"/>
             </div>
             <div class="card-info">
               <div class="pokemon-info">
@@ -58,15 +58,15 @@ function returnHTMLOverlayCard(index) {
   return /*html*/`
       <div><img onclick="nextCard(${index}, 1)" class="arrow" src="/assets/icons/left.png" /></div>
         <div class="card-overlay">
-          <div class="card-content-overlay bgi_${allPokemons[index].types[0]}">
+          <div class="card-content-overlay bgi_${allPokemons[index][0].types[0]}">
             <div class="card-head-overlay">
-              <h2>${allPokemons[index].name}</h2>
+              <h2>${allPokemons[index][0].name}</h2>
               <span class="head-right">
-                ${allPokemons[index].types.join(' ')}
+                ${allPokemons[index][0].types.join(' ')}
               </span>
             </div>
             <div class="card-image-overlay">
-              <img src="${allPokemons[index].image}" />
+            <img src="${allPokemons[index][0].image}"/>
             </div>
             <div class="card-info-overlay">
               <div class="info-menu">
@@ -79,13 +79,13 @@ function returnHTMLOverlayCard(index) {
                   test
                 </div>
                 <div id="stats" class="d-none">
-                  <span>${allPokemons[index].stats}</span>
-                  <span>${allPokemons[index].base_stat}</span>
+                  <span>${allPokemons[index][0].stats}</span>
+                  <span>${allPokemons[index][0].base_stat}</span>
                 </div>
                 <div id="evolution" class="d-none">
-                  <img src="${evolutionImage[0]}"/>
-                  <img src="${evolutionImage[1]}"/>
-                  <img src="${evolutionImage[2]}"/>
+                  <img src="${allPokemons[index][1][0]}" alt="">
+                  <img src="${allPokemons[index][1][1]}" alt="">
+                  <img src="${allPokemons[index][1][2]}" alt="">
                 </div>
               </div>
             </div>
