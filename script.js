@@ -55,7 +55,6 @@ async function pokemonFetchUrl(url) {
 
 
 async function pokemonDataUrl(pokemonData) {
-  // let pokemonId = pokemonData.id
   let pokemonRenderInfo = {
     id: pokemonData.id,
     name : pokemonData.name,
@@ -64,7 +63,6 @@ async function pokemonDataUrl(pokemonData) {
     stats: pokemonData.stats.map(statsInfo => statsInfo.stat.name),
     base_stat: pokemonData.stats.map(statsInfo => statsInfo.base_stat),
   };
-  // pokemonInfos.push(pokemonId, pokemonRenderInfo);  
   pokemonInfos.push(pokemonRenderInfo); 
 }
 
@@ -94,24 +92,38 @@ async function chainFetchUrls(pokemonEvolutionUrl) {
 
 async function evolutionUrls(chainData) {
   try {
-  if (chainData.chain.species.url) {
-    let speciesUrl = chainData.chain.species.url;
-    await fetchPokemonImage(speciesUrl);
-
-    if (chainData.chain.evolves_to.length > 0) {
-      let speciesUrl = chainData.chain.evolves_to[0].species.url;
-      await fetchPokemonImage(speciesUrl);
-    
-      if (chainData.chain.evolves_to[0].evolves_to.length > 0) {
-        let speciesUrl = chainData.chain.evolves_to[0].evolves_to[0].species.url;
-        await fetchPokemonImage(speciesUrl);
-      };
-    };
-  };
-  } catch (error) {
+    await firstSpeciesUrl(chainData);
+    await secondSpeciesUrl(chainData);
+    await lastSpeciesUrl(chainData);
+    } catch (error) {
     console.error(error);    
   };
 }
+
+
+async function firstSpeciesUrl(chainData) {
+  if (chainData.chain.species.url) {
+    let speciesUrl = chainData.chain.species.url;
+    await fetchPokemonImage(speciesUrl);
+  };
+}
+
+
+async function secondSpeciesUrl(chainData) {
+  if (chainData.chain.evolves_to.length > 0) {
+    let speciesUrl = chainData.chain.evolves_to[0].species.url;
+    await fetchPokemonImage(speciesUrl);
+  };
+}
+
+
+async function lastSpeciesUrl(chainData) {
+  if (chainData.chain.evolves_to[0].evolves_to.length > 0) {
+    let speciesUrl = chainData.chain.evolves_to[0].evolves_to[0].species.url;
+    await fetchPokemonImage(speciesUrl);
+  };
+}
+
 
 async function fetchPokemonImage(speciesUrl) {
   try {
@@ -124,7 +136,7 @@ async function fetchPokemonImage(speciesUrl) {
     evolutionImages.push(pokemonImage);
   } catch (error) {
     console.error(error);
-  }
+  };
 }
 
 
@@ -138,8 +150,7 @@ function pushEvolution() {
 
 function pokemonpush() {
   let pokemon = pokemonInfos;
-  allPokemons.push(pokemon)
-  // searchPokemon.push(pokemon)
+  allPokemons.push(pokemon);
   pokemonInfos = [];
 }
 
@@ -150,122 +161,4 @@ function renderPokemon() {
   for (let index = 0; index < allPokemons.length; index++) {
     newPokemon.innerHTML += returnHTMLPokemon(index);
   };
-}
-
-
-document.getElementById("searchPokemon").addEventListener("input", search);
-
-
-function search() {
-  let searchText = document.getElementById('searchPokemon').value;
-  if (searchText.length >= 3) {
-    searchPokemon = allPokemons.filter(element => element[0].name.includes(searchText));
-    renderSearchPokemon();
-  } if (searchText.length < 3) {
-    inputValueMinize();
-  }
-}
-
-
-function renderSearchPokemon() {
-  let newSearchPokemon = document.getElementById('searchList');
-  newSearchPokemon.innerHTML = '';
-  for (let index = 0; index < searchPokemon.length; index++) {
-    document.getElementById('mainSection').classList.add('d-none')
-    document.getElementById('searchSection').classList.remove('d-none')
-    newSearchPokemon.innerHTML += returnSearchHTMLPokemon(index);
-  };
-}
-
-
-function backToStart() {
-  newSearchPokemon = [];
-  document.getElementById('searchPokemon').value = '';
-  document.getElementById('searchSection').classList.add('d-none');
-  document.getElementById('mainSection').classList.remove('d-none');
-  renderPokemon();
-}
-
-
-function inputValueMinize() {
-  newSearchPokemon = [];
-  document.getElementById('searchSection').classList.add('d-none');
-  document.getElementById('mainSection').classList.remove('d-none');
-  renderPokemon();
-}
-
-
-function openOverlayCard(id) {
-  let index = allPokemons.findIndex(pokemon => pokemon[0].id == id);
-  let card = document.getElementById('overlayCard');
-  document.getElementById('header').classList.add('d-none');
-  document.getElementById('mainSection').classList.add('d-none');
-  document.getElementById('searchSection').classList.add('d-none');
-  document.getElementById('overlay').classList.remove('d-none');
-  card.innerHTML = returnHTMLOverlayCard(index);  
-}
-
-
-function nextCard(id, num) {
-  if (num === 2) { 
-    if (id < allPokemons.length) {
-      id++;
-    } else {
-      id = 1;
-    }
-  } else if (num === 1) {
-    if (id <= 1) {
-      id = allPokemons.length;
-    } else {
-      id--;
-    }
-  };  
-  openOverlayCard(id)
-}
-
-
-function closeOverlay() {  
-  document.getElementById('overlay').classList.add('d-none');
-  document.getElementById('header').classList.remove('d-none');
-  document.getElementById('mainSection').classList.remove('d-none');
-}
-
-
-function stopBubblingProtection(event) {
-  event.stopPropagation();
-}
-
-
-function openInfo(index, num) {
-  if (num == 1) {
-    openAboutContent();
-  } if (num == 2) {
-    openStatsContent();
-  } if (num == 3) {
-    openEvolutionContent();
-  };
-}
-
-
-function openAboutContent() {
-  document.getElementById('about').classList.remove('d-none');
-  document.getElementById('about').classList.add('box-animation');
-  document.getElementById('stats').classList.add('d-none');
-  document.getElementById('evolution').classList.add('d-none');
-}
-
-
-function openStatsContent() {
-  document.getElementById('about').classList.add('d-none');
-  document.getElementById('stats').classList.remove('d-none');
-  document.getElementById('stats').classList.add('box-animation');
-  document.getElementById('evolution').classList.add('d-none');
-}
-
-
-function openEvolutionContent() {
-  document.getElementById('about').classList.add('d-none');
-  document.getElementById('stats').classList.add('d-none');
-  document.getElementById('evolution').classList.remove('d-none');
-  document.getElementById('evolution').classList.add('box-animation');
 }
