@@ -56,7 +56,7 @@ function returnSearchHTMLPokemon(index) {
 
 function returnHTMLOverlayCard(index) {
   return /*html*/`
-      <div><img onclick="nextCard(${index}, 1)" class="arrow" src="/assets/icons/left.png" /></div>
+      <div><img onclick="nextCard(${allPokemons[index][0].id}, 1)" class="arrow" src="/assets/icons/left.png" /></div>
         <div class="card-overlay">
           <div class="card-content-overlay bgi_${allPokemons[index][0].types[0]}">
             <div class="card-head-overlay">
@@ -91,6 +91,6 @@ function returnHTMLOverlayCard(index) {
             </div>
           </div>
         </div>
-      <div><img onclick="nextCard(${index}, 2)" class="arrow" src="/assets/icons/right.png" /></div>
+      <div><img onclick="nextCard(${allPokemons[index][0].id}, 2)" class="arrow" src="/assets/icons/right.png" /></div>
     `;
 }

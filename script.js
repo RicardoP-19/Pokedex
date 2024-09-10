@@ -206,21 +206,21 @@ function openOverlayCard(id) {
 }
 
 
-function nextCard(index, num) {
+function nextCard(id, num) {
   if (num === 2) { 
-    if (index < allPokemons.length - 1) {
-      index++;
+    if (id < allPokemons.length) {
+      id++;
     } else {
-      index = 0;
+      id = 1;
     }
   } else if (num === 1) {
-    if (index <= 0) {
-      index = allPokemons.length - 1;
+    if (id <= 1) {
+      id = allPokemons.length;
     } else {
-      index--;
+      id--;
     }
-  }
-  openOverlayCard(index)
+  };  
+  openOverlayCard(id)
 }
 
 
