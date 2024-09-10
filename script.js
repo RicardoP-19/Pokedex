@@ -55,16 +55,17 @@ async function pokemonFetchUrl(url) {
 
 
 async function pokemonDataUrl(pokemonData) {
-  let pokemonInfo = pokemonData;
+  // let pokemonId = pokemonData.id
   let pokemonRenderInfo = {
-    id: pokemonInfo.id,
-    name : pokemonInfo.name,
-    image : pokemonInfo.sprites.other['official-artwork'].front_default,
-    types: pokemonInfo.types.map(typeInfo => typeInfo.type.name),
-    stats: pokemonInfo.stats.map(statsInfo => statsInfo.stat.name),
-    base_stat: pokemonInfo.stats.map(statsInfo => statsInfo.base_stat),
+    id: pokemonData.id,
+    name : pokemonData.name,
+    image : pokemonData.sprites.other['official-artwork'].front_default,
+    types: pokemonData.types.map(typeInfo => typeInfo.type.name),
+    stats: pokemonData.stats.map(statsInfo => statsInfo.stat.name),
+    base_stat: pokemonData.stats.map(statsInfo => statsInfo.base_stat),
   };
-  pokemonInfos.push(pokemonRenderInfo);
+  // pokemonInfos.push(pokemonId, pokemonRenderInfo);  
+  pokemonInfos.push(pokemonRenderInfo); 
 }
 
 
@@ -130,9 +131,7 @@ async function fetchPokemonImage(speciesUrl) {
 function pushEvolution() {
   let evolution = evolutionImages
   pokemonInfos.push(evolution);  
-  evolutionImages = [];
-  console.log(pokemonInfos);
-  console.log(evolutionImages);  
+  evolutionImages = [];  
   pokemonpush();
 }
 
@@ -140,8 +139,8 @@ function pushEvolution() {
 function pokemonpush() {
   let pokemon = pokemonInfos;
   allPokemons.push(pokemon)
+  // searchPokemon.push(pokemon)
   pokemonInfos = [];
-  console.log(pokemonInfos);
 }
 
 
@@ -196,13 +195,14 @@ function inputValueMinize() {
 }
 
 
-function openOverlayCard(index) {
+function openOverlayCard(id) {
+  let index = allPokemons.findIndex(pokemon => pokemon[0].id == id);
   let card = document.getElementById('overlayCard');
   document.getElementById('header').classList.add('d-none');
   document.getElementById('mainSection').classList.add('d-none');
   document.getElementById('searchSection').classList.add('d-none');
   document.getElementById('overlay').classList.remove('d-none');
-  card.innerHTML = returnHTMLOverlayCard(index);
+  card.innerHTML = returnHTMLOverlayCard(index);  
 }
 
 

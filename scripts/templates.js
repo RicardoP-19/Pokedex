@@ -1,7 +1,7 @@
 function returnHTMLPokemon(index) {
   return /*html*/`
       <div class="card-animation bga_${allPokemons[index][0].types[0]}">
-        <div onclick="openOverlayCard(${index})" class="card">
+        <div onclick="openOverlayCard(${allPokemons[index][0].id})" class="card">
           <div class="card-content bgi_${allPokemons[index][0].types[0]}">
             <div class="card-head">
               <h2>${allPokemons[index][0].name}</h2>
@@ -29,7 +29,7 @@ function returnHTMLPokemon(index) {
 function returnSearchHTMLPokemon(index) {
   return /*html*/`
       <div class="card-animation bga_${searchPokemon[index][0].types[0]}">
-        <div onclick="openOverlayCard(${index})" class="card">
+        <div onclick="openOverlayCard(${searchPokemon[index][0].id})" class="card">
           <div class="card-content bgi_${searchPokemon[index][0].types[0]}">
             <div class="card-head">
               <h3>${searchPokemon[index][0].name}</h3>
