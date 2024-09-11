@@ -37,28 +37,38 @@
       </header>
 
       <main>
-        <section id="mainSection">
-          <div id="pokemon" class="main-content"></div>
-          <div class="btn-container">
-            <button onclick="fetchPokemonApi()">More Pokemons</button>
+        <section id="loading">
+          <div class="loader">
+            <img src="/assets/gifs/loader.gif">
+            <h1>Loading ...</h1>
           </div>
+        </section>
+        <section id="mainSection" class="d-none">
+            <div id="pokemon" class="main-content"></div>
+            <div class="btn-container">
+              <button onclick="fetchPokemonApi()">More Pokemons</button>
+            </div>
         </section>
         <section id="searchSection" class="d-none">
-          <div id="searchList" class="main-content"></div>
-          <div class="btn-container">
-            <button onclick="backToStart()">Back To Start</button>
-          </div>
+            <div id="searchList" class="main-content"></div>
+            <div class="btn-container">
+              <button onclick="backToStart()">Back To Start</button>
+            </div>
         </section>
-        <section>
-          <div id="overlay" class="d-none">
-            <div onclick="closeOverlay()" class="overlay-image">
-              <div onclick="stopBubblingProtection(event)" class="overlay-content" id="overlayCard">
-
+        <section id="overlay" class="d-none">
+            <div>
+              <div onclick="closeOverlay()" class="overlay-image">
+                <div onclick="stopBubblingProtection(event)" class="overlay-content" id="overlayCard">
+  
+                </div>
               </div>
             </div>
-          </div>
         </section>
       </main>
+
+      <footer id="footer">
+        <h1 style="color: white;">test</h1>
+      </footer>
     </div>
   </body>
 </html> 

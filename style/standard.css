@@ -5,7 +5,11 @@
 }
 
 .content {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   max-width: 1920px;
+  flex: 1;
 }
 
 a {

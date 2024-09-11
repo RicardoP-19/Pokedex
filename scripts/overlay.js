@@ -4,6 +4,7 @@ function openOverlayCard(id) {
   document.getElementById('header').classList.add('d-none');
   document.getElementById('mainSection').classList.add('d-none');
   document.getElementById('searchSection').classList.add('d-none');
+  document.getElementById('footer').classList.add('d-none');
   document.getElementById('overlay').classList.remove('d-none');
   card.innerHTML = returnHTMLOverlayCard(index);  
 }
@@ -30,6 +31,7 @@ function closeOverlay() {
   document.getElementById('overlay').classList.add('d-none');
   document.getElementById('header').classList.remove('d-none');
   document.getElementById('mainSection').classList.remove('d-none');
+  document.getElementById('footer').classList.remove('d-none');
 }
 
 

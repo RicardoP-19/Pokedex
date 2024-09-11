@@ -13,6 +13,7 @@ function init() {
 
 
 async function fetchPokemonApi() {
+  startLoader();
   try {
     let response = await fetch(BASE_URL);
     if (response.ok) {
@@ -22,7 +23,23 @@ async function fetchPokemonApi() {
   } catch (error) {
     console.error(error);    
   };
-  setLimitHigh()
+  setLimitHigh();
+  loaderEnd();
+  renderPokemon();
+}
+
+
+function startLoader() {
+  document.getElementById('loading').classList.remove('d-none');
+  document.body.style.display = 'flex';
+  document.getElementById('mainSection').classList.add('d-none');
+}
+
+
+function loaderEnd() {
+  document.getElementById('loading').classList.add('d-none');
+  document.body.style.display = 'block';
+  document.getElementById('mainSection').classList.remove('d-none');
 }
 
 
@@ -37,7 +54,6 @@ async function iteratePokemonJson(responseAsJson) {
   for (let index = 0; index < pokemonsArray.length; index++) {
     await pokemonFetchUrl(pokemonsArray[index].url);
   };
-  renderPokemon();
 }
 
 

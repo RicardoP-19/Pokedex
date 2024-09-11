@@ -8,7 +8,8 @@ function search() {
     renderSearchPokemon();
   } if (searchText.length < 3) {
     inputValueMinize();
-  };
+  }; 
+  // document.getElementById('searchPokemon').value = '';
 }
 
 
