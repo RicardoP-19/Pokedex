@@ -19,3 +19,26 @@ a {
 .d-none {
   display: none;
 }
+
+.width {
+  width: 100%;
+}
+
+.height {
+  height: 100%;
+}
+
+.text-Color {
+  color: white;
+  filter: drop-shadow(5px 5px 4px black);
+}
+
+.d-flex {
+  display: flex;
+}
+
+.d-all-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

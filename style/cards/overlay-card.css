@@ -1,0 +1,140 @@
+.overlay-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.arrow {
+  justify-content: center;
+  width: 50%;
+  cursor: pointer;
+}
+
+.card-overlay {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 350px;
+  height: 500px;
+  background-color: #ffe659;
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 2;
+  margin: 0 !important;
+  box-shadow: 0px 0px 18px white;
+}
+
+.card-content-overlay {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  margin: 9px;
+  gap: 10px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  filter: drop-shadow(0px 0px 1px black);
+}
+
+.card-head-overlay {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding-top: 12px;
+  color: white;
+  filter: drop-shadow(5px 5px 4px black);
+  font-size: larger;
+}
+
+.card-image-overlay {
+  border: 6px groove #c9c9ca;
+  border-radius: 9px;
+  filter: drop-shadow(9px 4px 7px black);
+  margin-top: 18px;
+  width: 80%;
+  height: 36%;
+}
+
+.card-image-overlay img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.card-weight-height {
+  padding-top: 10px;
+  font-size: 16px;
+}
+
+.card-info-overlay {
+  width: 90%;
+  height: 100%;
+  padding-top: 29px;
+}
+
+.info-menu {
+  display: flex;
+  align-items: center;
+  color: white;
+  text-align: center;
+  filter: drop-shadow(5px 5px 4px black);
+  cursor: pointer;
+}
+
+.info-content {
+  padding-top: 23px;
+  filter: drop-shadow(9px 4px 7px black);
+}
+
+.progressbar-container {
+  width: 100%;
+  background-color: #fffafa;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progressbar {
+  width: 60%;
+  height: 20px;
+  background-color: #2089dd;
+  transition: width 1s easy 0s
+}
+
+.percentage {
+  position: absolute;
+  right: 40%;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: white;
+  padding-right: 5px;
+}
+
+.info-content img {
+  width: 22%;
+}
+
+.arrow-evo {
+  width: 2rem !important;
+}
+
+.box-animation {
+  animation: myAnim 1s ease-in-out 0s 1 normal forwards;
+}
+
+@keyframes myAnim {
+	0% {
+		opacity: 0;
+		transform: translateY(-50px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}

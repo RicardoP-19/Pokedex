@@ -75,8 +75,11 @@ async function pokemonDataUrl(pokemonData) {
     id: pokemonData.id,
     name : pokemonData.name,
     image : pokemonData.sprites.other['official-artwork'].front_default,
-    types: pokemonData.types.map(typeInfo => typeInfo.type.name),
+    height: pokemonData.height,
+    weight: pokemonData.weight,
+    moves: pokemonData.moves.map(moveInfo => moveInfo.move.name),
     stats: pokemonData.stats.map(statsInfo => statsInfo.stat.name),
+    types: pokemonData.types.map(typeInfo => typeInfo.type.name),
     base_stat: pokemonData.stats.map(statsInfo => statsInfo.base_stat),
   };
   pokemonInfos.push(pokemonRenderInfo); 
