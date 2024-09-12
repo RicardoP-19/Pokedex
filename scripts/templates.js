@@ -14,7 +14,7 @@ function returnHTMLPokemon(index) {
             </div>
             <div class="card-info">
               <div class="pokemon-info">
-                <h5>About</h5>
+                <h5>Moves</h5>
                 <h5>Stats</h5>
                 <h5>Evolution</h5>
               </div>
@@ -42,7 +42,7 @@ function returnSearchHTMLPokemon(index) {
             </div>
             <div class="card-info">
               <div class="pokemon-info">
-                <h5>About</h5>
+                <h5>Moves</h5>
                 <h5>Stats</h5>
                 <h5>Evolution</h5>
               </div>
@@ -74,19 +74,15 @@ function returnHTMLOverlayCard(index) {
             </div>
             <div class="card-info-overlay">
               <div class="info-menu">
-                <h3 onclick="openInfo(${index}, 1)">About</h3>
+                <h3 onclick="openInfo(${index}, 1)">Moves</h3>
                 <h3 onclick="openInfo(${index}, 2)">Stats</h3>
                 <h3 onclick="openInfo(${index}, 3)">Evolution</h3>
               </div>
               <div class="info-content">
-                <div id="about" >
-                  <div class="d-all-center">
-                  test
-                  </div>
+                <div id="moveInfo" class="moves-content box-animation">
                 </div>
                 <div id="stats" class="d-none">
-                  <div id="statsContent" class="d-all-center text-Color">
-                    
+                  <div id="statsContent" class="d-all-center text-Color">                    
                   </div>
                 </div>
                 <div id="evolution" class="d-none">
@@ -104,6 +100,15 @@ function returnHTMLOverlayCard(index) {
         </div>
       <div><img onclick="nextCard(${allPokemons[index][0].id}, 2)" class="arrow d-flex" src="/assets/icons/right.png" /></div>
     `;
+}
+
+
+function returnHTMLrenderMoves(move) {
+  return /*html*/ `
+        <div class="move">
+          <p>${move}</p>
+        </div>
+  `;
 }
 
 

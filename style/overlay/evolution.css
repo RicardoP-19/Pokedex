@@ -1,0 +1,22 @@
+.info-content img {
+  width: 22%;
+}
+
+.arrow-evo {
+  width: 2rem !important;
+}
+
+.box-animation {
+  animation: myAnim 1s ease-in-out 0s 1 normal forwards;
+}
+
+@keyframes myAnim {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

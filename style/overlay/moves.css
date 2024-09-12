@@ -1,0 +1,18 @@
+.moves-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 12px
+}
+
+.move {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 calc(33.333% - 10px);
+  box-sizing: border-box;
+  color: white;
+  border: 1px solid white;
+  border-radius: 8px;
+  padding: 4px;
+}

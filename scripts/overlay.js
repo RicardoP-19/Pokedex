@@ -6,7 +6,8 @@ function openOverlayCard(id) {
   document.getElementById('searchSection').classList.add('d-none');
   document.getElementById('footer').classList.add('d-none');
   document.getElementById('overlay').classList.remove('d-none');
-  card.innerHTML = returnHTMLOverlayCard(index);  
+  card.innerHTML = returnHTMLOverlayCard(index);
+  openMovesContent(index);  
 }
 
 
@@ -42,29 +43,44 @@ function stopBubblingProtection(event) {
 
 function openInfo(index, num) {
   if (num == 1) {
-    openAboutContent();
-  } if (num == 2) {
-    openStatsContent();
-    renderStats(index);
-  } if (num == 3) {
+    openMovesContent(index);
+  } else if (num == 2) {
+    openStatsContent(index);
+  } else if (num == 3) {
     openEvolutionContent();
   };
 }
 
 
-function openAboutContent() {
-  document.getElementById('about').classList.remove('d-none');
-  document.getElementById('about').classList.add('box-animation');
+function openMovesContent(index) {
+  document.getElementById('moveInfo').classList.remove('d-none');
+  document.getElementById('moveInfo').classList.add('box-animation');
   document.getElementById('stats').classList.add('d-none');
   document.getElementById('evolution').classList.add('d-none');
+  renderMoves(index);
 }
 
 
-function openStatsContent() {
-  document.getElementById('about').classList.add('d-none');
+function renderMoves(index) {
+  let movesContent = document.getElementById('moveInfo');
+  movesContent.innerHTML = '';
+  let movelist = allPokemons[index][0].moves; 
+  if (movesContent) {
+    for (let index = 0; index < movelist.length; index++) {
+      let move = movelist[index];
+      movesContent.innerHTML += returnHTMLrenderMoves(move);
+    };
+  };
+}
+
+
+function openStatsContent(index) {
+  document.getElementById('moveInfo').classList.add('d-none');
+  document.getElementById('evolution').classList.add('d-none');
+  document.querySelector('.card-info-overlay').classList.remove('overflow');
   document.getElementById('stats').classList.remove('d-none');
   document.getElementById('stats').classList.add('box-animation');
-  document.getElementById('evolution').classList.add('d-none');
+  renderStats(index);
 }
 
 
@@ -79,14 +95,14 @@ function renderStats(index) {
       let statsName = stats[i];
       let baseNum = base_stat[i];
       statContent.innerHTML += returnHTMLrenderStats(statsName, baseNum);
-    }
+    };
   };
 } 
 
 
 function openEvolutionContent() {
-  document.getElementById('about').classList.add('d-none');
+  document.getElementById('moveInfo').classList.add('d-none');
   document.getElementById('stats').classList.add('d-none');
-  document.getElementById('evolution').classList.remove('d-none');
   document.getElementById('evolution').classList.add('box-animation');
+  document.getElementById('evolution').classList.remove('d-none');
 }
