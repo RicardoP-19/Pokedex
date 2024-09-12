@@ -2,8 +2,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 100%;
+  width: 50%;
+  height: 50%;
 }
 
 .arrow {
@@ -16,8 +16,8 @@
   position: relative;
   display: flex;
   justify-content: center;
-  width: 350px;
-  height: 500px;
+  width: 470px;
+  height: 650px;
   background-color: #ffe659;
   border-radius: 8px;
   overflow: hidden;
@@ -74,6 +74,7 @@
   width: 90%;
   height: 100%;
   padding-top: 29px;
+  overflow: auto;
 }
 
 .info-menu {
@@ -90,29 +91,105 @@
   filter: drop-shadow(9px 4px 7px black);
 }
 
-.progressbar-container {
+#baseNum {
   width: 100%;
-  background-color: #fffafa;
-  border-radius: 5px;
-  overflow: hidden;
+}
+
+#statsContent {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.stats-div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 10px;
+}
+
+.stats-name {
+  width: 150px;
+  flex-shrink: 0;
+  text-align: left;
+}
+
+.progressbar-container {
+  flex: 1;
+  background-color: rgb(220, 220, 220);
+  border-radius: 10em;
+  height: 14px;
   position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  width: 100%;
 }
 
 .progressbar {
-  width: 60%;
-  height: 20px;
-  background-color: #2089dd;
-  transition: width 1s easy 0s
+  height: 100%;
+  border-radius: 10em;
+  background: linear-gradient(
+    120deg, 
+    #1672fc 25%,
+    #013cc5 25%,
+    #002e97 50%,
+    #002e74 50%,
+    #0250c6 75%,
+    #2462f4 75%,
+    #2c5ef6 100% 
+  );
+  background-size: 20px 20px;
+  animation: progress-bar-stripes 2s linear infinite;
+  transition: width 1s ease-in-out;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
-.percentage {
+@keyframes progress-bar-stripes {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 20px 0;
+  }
+}
+
+.progress-text {
   position: absolute;
-  right: 40%;
+  padding-left: 8px;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 16px;
+  font-size: 14px;
   color: white;
-  padding-right: 5px;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7);
+}
+
+.info-content img {
+  width: 22%;
+}
+
+.arrow-evo {
+  width: 2rem !important;
+}
+
+.box-animation {
+  animation: myAnim 1s ease-in-out 0s 1 normal forwards;
+}
+
+@keyframes myAnim {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .info-content img {

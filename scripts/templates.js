@@ -79,31 +79,22 @@ function returnHTMLOverlayCard(index) {
                 <h3 onclick="openInfo(${index}, 3)">Evolution</h3>
               </div>
               <div class="info-content">
-                <div id="about">
+                <div id="about" >
                   <div class="d-all-center">
                   test
                   </div>
                 </div>
                 <div id="stats" class="d-none">
-                  <div class="d-all-center">
-                    <div class="text-Color">
-                      <div>
-                       <span>${allPokemons[index][0].stats}</span>
-                      </div>
-                      <div class="progressbar-container">
-                        <div class="progressbar">
-                          <span class="percentage" >${allPokemons[index][0].base_stat}</span>
-                        </div>
-                      </div>
-                    </div>
+                  <div id="statsContent" class="d-all-center text-Color">
+                    
                   </div>
                 </div>
                 <div id="evolution" class="d-none">
                   <div class="d-all-center">
                     <img src="${allPokemons[index][1][0]}">
-                    <img class="arrow-evo" src="/assets/icons/right.png">
+                    <img class="arrow-evo" src="/assets/icons/arrow.png">
                     <img src="${allPokemons[index][1][1]}">
-                    <img class="arrow-evo" src="/assets/icons/right.png">
+                    <img class="arrow-evo" src="/assets/icons/arrow.png">
                     <img src="${allPokemons[index][1][2]}">
                   </div>
                 </div>
@@ -113,4 +104,20 @@ function returnHTMLOverlayCard(index) {
         </div>
       <div><img onclick="nextCard(${allPokemons[index][0].id}, 2)" class="arrow d-flex" src="/assets/icons/right.png" /></div>
     `;
+}
+
+
+function returnHTMLrenderStats(statsName, baseNum) {
+  return /*html*/ `
+      <div class="stats-div width d-all-center">
+        <div class="stats-name">                   
+          <span>${statsName}</span>
+        </div>
+        <div class="progressbar-container">
+          <div class="progressbar" style="width: ${baseNum}%;">
+            <span class="progress-text">${baseNum}</span>
+          </div>
+        </div>
+      </div>
+  `;
 }

@@ -45,6 +45,7 @@ function openInfo(index, num) {
     openAboutContent();
   } if (num == 2) {
     openStatsContent();
+    renderStats(index);
   } if (num == 3) {
     openEvolutionContent();
   };
@@ -65,6 +66,22 @@ function openStatsContent() {
   document.getElementById('stats').classList.add('box-animation');
   document.getElementById('evolution').classList.add('d-none');
 }
+
+
+function renderStats(index) {  
+  let statContent = document.getElementById('statsContent');
+  statContent.innerHTML = '';
+  let stats = allPokemons[index][0].stats;
+  let base_stat = allPokemons[index][0].base_stat;
+  let length = Math.min(stats.length, base_stat.length);
+  if (statContent) {
+    for (let i = 0; i < length; i++) {
+      let statsName = stats[i];
+      let baseNum = base_stat[i];
+      statContent.innerHTML += returnHTMLrenderStats(statsName, baseNum);
+    }
+  };
+} 
 
 
 function openEvolutionContent() {
