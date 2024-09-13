@@ -4,7 +4,7 @@ function returnHTMLPokemon(index) {
         <div onclick="openOverlayCard(${allPokemons[index][0].id})" class="card">
           <div class="card-content bgi_${allPokemons[index][0].types[0]}">
             <div class="card-head">
-              <h2>${allPokemons[index][0].name}</h2>
+              <h3>${allPokemons[index][0].name}</h3>
               <span class="head-right">
                 ${allPokemons[index][0].types.join(' ')}
               </span>

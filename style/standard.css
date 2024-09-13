@@ -4,8 +4,12 @@
   scroll-behavior: smooth;
 }
 
-a {
+.a {
   text-decoration: none;
+}
+
+.content {
+  max-width: 1920px;
 }
 
 .d-none {
@@ -18,6 +22,10 @@ a {
 
 .height {
   height: 100%;
+}
+
+.margin {
+  margin: 0 !important;
 }
 
 .text-Color {

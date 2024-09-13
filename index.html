@@ -24,8 +24,7 @@
   </head>
 
   <body onload="init()">
-    <div class="content">
-      <header>
+      <header class="content">
         <div id="header" class="header-main-content">
           <div class="headline-content">
             <div class="headline">Pokedex</div>
@@ -40,7 +39,7 @@
         </div>
       </header>
 
-      <main>
+      <main class="content">
         <section id="loading">
           <div class="loader">
             <img src="/assets/gifs/loader.gif">
@@ -59,7 +58,7 @@
               <button onclick="backToStart()">Back To Start</button>
             </div>
         </section>
-        <section id="overlay" class="d-none width">
+        <section id="overlay" class="d-none width height">
             <div class="height">
               <div onclick="closeOverlay()" class="overlay-image">
                 <div onclick="stopBubblingProtection(event)" class="overlay-content" id="overlayCard">
@@ -70,9 +69,19 @@
         </section>
       </main>
 
-      <footer id="footer">
-        <h1 style="color: white;">test</h1>
+      <footer class="content" id="footer">
+        <!-- <div>
+          <span>Design By Ricardo Pinto</span>
+        </div> -->
+        <!-- <div>
+          <span>&copy; 2024</span>
+        </div> -->
+        <div class="footer-info">
+          <span class="margin">Design By Ricardo Pinto</span>
+          <a class="margin" href="https://github.com/RicardoP-19" target="_blank"><img src="/assets/icons/github.png"></a>
+          <a class="margin" href="https://www.facebook.com/" target="_blank"><img src="/assets/icons/facebook.png"></a>
+          <a class="margin" href="https://www.instagram.com/" target="_blank"><img src="/assets/icons/instagram.png"></a>
+        </div>
       </footer>
-    </div>
   </body>
 </html> 
