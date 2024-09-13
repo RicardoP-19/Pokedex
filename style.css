@@ -1,11 +1,11 @@
-body {
+html {
+  height: 100%;
+}
+
+body{
   display: flex;
-  background-image: url("/assets/img/background-img.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: top;
-  height: 100vh;
+  height: 100%;
+  background-color: black;
 }
 
 header {
@@ -13,12 +13,18 @@ header {
 }
 
 main {
-  flex: 1;
+  display: flex;
+  background-image: url("/assets/img/background-img.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: top;
   width: 100%;
+  height: 100vh;
 }
 
 #loading {
-  height: 100%;
+  width: 100%;
 }
 
 .loader {
@@ -26,19 +32,19 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  /* width: 100%; */
   height: 100%;
   background-color: #181817;
+}
+
+.loader img {
+ height: 20%;
 }
 
 .loader h1 {
   color: white;
   font-size: larger;
   text-align: center;
-}
-
-.loader img {
- height: 40%;
 }
 
 .header-main-content {
@@ -96,11 +102,25 @@ input::placeholder {
   flex-wrap: wrap;
   padding: 20px 30px;
   gap: 18px;
+  animation: myContent 2s ease-in-out 0s 1 normal forwards;
+}
+
+@keyframes myContent {
+	0% {
+		opacity: 0;
+		transform: translateY(250px);
+	};
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	};
 }
 
 .btn-container {
   display: flex;
   justify-content: center;
+  padding: 28px 0px;
 }
 
 .btn-container button {
@@ -152,13 +172,13 @@ input::placeholder {
 @keyframes shine {
   0% {
     left: -100px;
-  }
+  };
 
   60% {
     left: 100%;
-  }
+  };
 
   to {
     left: 100%;
-  }
+  };
 }

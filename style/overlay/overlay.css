@@ -2,9 +2,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  /* position: absolute;
   top: 0;
-  z-index: 900;
+  z-index: 900; */
   width: 100%;
   height: 100%;
   background-image: url("/assets/img/overlay-background-img.jpg");
