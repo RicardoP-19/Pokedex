@@ -4,14 +4,6 @@
   scroll-behavior: smooth;
 }
 
-.content {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  max-width: 1920px;
-  width: 100%;
-}
-
 a {
   text-decoration: none;
 }
