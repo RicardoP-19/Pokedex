@@ -54,12 +54,48 @@
   background-image: url("/assets/img/cards/ghost.jpg");
 }
 
+.card-content.bgi_ghost {
+  color: white;
+}
+
+.card-content-overlay.bgi_ghost {
+  color: white;
+}
+
+.card-content-overlay.bgi_ghost .move {
+  color: black !important;
+}
+
 .bgi_dragon {
   background-image: url("/assets/img/cards/dragon.jpg");
 }
 
+.card-content.bgi_dragon {
+  color: white;
+}
+
+.card-content-overlay.bgi_dragon {
+  color: white;
+}
+
+.card-content-overlay.bgi_dragon .move {
+  color: black !important;
+}
+
 .bgi_dark {
   background-image: url("/assets/img/cards/dark.jpg");
+}
+
+.card-content.bgi_dark {
+  color: white;
+}
+
+.card-content-overlay.bgi_dark{
+  color: white;
+}
+
+.card-content-overlay.bgi_dark .move {
+  color: black !important;
 }
 
 .bgi_ice {

@@ -3,7 +3,7 @@ function returnHTMLPokemon(index) {
       <div class="card-animation bga_${allPokemons[index][0].types[0]}">
         <div onclick="openOverlayCard(${allPokemons[index][0].id})" class="card">
           <div class="card-content bgi_${allPokemons[index][0].types[0]}">
-            <div class="card-head">
+            <div class="card-head d-all-center width">
               <h3>${allPokemons[index][0].name}</h3>
               <span class="head-right">
                 ${allPokemons[index][0].types.join(' ')}
@@ -13,7 +13,7 @@ function returnHTMLPokemon(index) {
               <img src="${allPokemons[index][0].image}"/>
             </div>
             <div class="card-info">
-              <div class="pokemon-info">
+              <div class="pokemon-info d-flex height">
                 <h5>Moves</h5>
                 <h5>Stats</h5>
                 <h5>Evolution</h5>
@@ -31,7 +31,7 @@ function returnSearchHTMLPokemon(index) {
       <div class="card-animation bga_${searchPokemon[index][0].types[0]}">
         <div onclick="openOverlayCard(${searchPokemon[index][0].id})" class="card">
           <div class="card-content bgi_${searchPokemon[index][0].types[0]}">
-            <div class="card-head">
+            <div class="card-head d-all-center width">
               <h3>${searchPokemon[index][0].name}</h3>
               <span class="head-right">
                 ${searchPokemon[index][0].types.join(' ')}
@@ -41,7 +41,7 @@ function returnSearchHTMLPokemon(index) {
               <img src="${searchPokemon[index][0].image}"/>
             </div>
             <div class="card-info">
-              <div class="pokemon-info">
+              <div class="pokemon-info d-flex height">
                 <h5>Moves</h5>
                 <h5>Stats</h5>
                 <h5>Evolution</h5>
@@ -59,7 +59,7 @@ function returnHTMLOverlayCard(index) {
       <div><img onclick="nextCard(${allPokemons[index][0].id}, 1)" class="arrow d-flex" src="/assets/icons/left.png" /></div>
         <div class="card-overlay">
           <div class="card-content-overlay bgi_${allPokemons[index][0].types[0]}">
-            <div class="card-head-overlay">
+            <div class="card-head-overlay d-flex width">
               <h2>${allPokemons[index][0].name}</h2>
               <span class="head-right">
                 ${allPokemons[index][0].types.join(' ')}
@@ -68,12 +68,12 @@ function returnHTMLOverlayCard(index) {
             <div class="card-image-overlay">
               <img src="${allPokemons[index][0].image}"/>
             </div>
-            <div class="card-weight-height d-flex width text-Color">
+            <div class="card-weight-height d-flex width">
               <span>Weight: ${allPokemons[index][0].weight}</span>
               <span>Height: ${allPokemons[index][0].height}</span>
             </div>
-            <div class="card-info-overlay">
-              <div class="info-menu">
+            <div class="card-info-overlay height">
+              <div class="info-menu d-flex">
                 <h3 onclick="openInfo(${index}, 1)">Moves</h3>
                 <h3 onclick="openInfo(${index}, 2)">Stats</h3>
                 <h3 onclick="openInfo(${index}, 3)">Evolution</h3>
@@ -82,7 +82,7 @@ function returnHTMLOverlayCard(index) {
                 <div id="moveInfo" class="moves-content box-animation">
                 </div>
                 <div id="stats" class="d-none">
-                  <div id="statsContent" class="d-all-center text-Color">                    
+                  <div id="statsContent" class="d-all-center">                    
                   </div>
                 </div>
                 <div id="evolution" class="d-none">
@@ -105,7 +105,7 @@ function returnHTMLOverlayCard(index) {
 
 function returnHTMLrenderMoves(move) {
   return /*html*/ `
-        <div class="move">
+        <div class="move d-all-center">
           <p>${move}</p>
         </div>
   `;
@@ -114,11 +114,11 @@ function returnHTMLrenderMoves(move) {
 
 function returnHTMLrenderStats(statsName, baseNum) {
   return /*html*/ `
-      <div class="stats-div width d-all-center">
+      <div class="stats-div width d-flex">
         <div class="stats-name">                   
           <span>${statsName}</span>
         </div>
-        <div class="progressbar-container">
+        <div class="progressbar-container width d-flex">
           <div class="progressbar" style="width: ${baseNum}%;">
             <span class="progress-text">${baseNum}</span>
           </div>

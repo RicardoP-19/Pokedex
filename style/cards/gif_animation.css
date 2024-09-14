@@ -7,14 +7,19 @@
   background-size: cover;
   background-position: center;
   border-radius: 8px;
-  filter: drop-shadow(0px 0px 1px black);
 }
 
 .card-content:hover.bgi_grass {
   background-image: url("/assets/gifs/grass.gif");
 }
 
+.card-content.bgi_grass:hover .pokemon-info {
+  color: white;
+}
+
 .card-content:hover.bgi_fire {
+  color: white;
+  filter: drop-shadow(0px 0px 1px black);
   background-image: url("/assets/gifs/fire.gif");
 }
 
@@ -22,8 +27,16 @@
   background-image: url("/assets/gifs/water.gif");
 }
 
+.card-content.bgi_water:hover .pokemon-info {
+  color: white;
+}
+
 .card-content:hover.bgi_bug {
   background-image: url("/assets/gifs/bug.gif");
+}
+
+.card-content.bgi_bug:hover {
+  color: white;
 }
 
 .card-content:hover.bgi_flying {
@@ -34,6 +47,10 @@
   background-image: url("/assets/gifs/normal.gif");
 }
 
+.card-content.bgi_normal:hover {
+  color: white;
+}
+
 .card-content:hover.bgi_poison {
   background-image: url("/assets/gifs/poison.gif");
 }
@@ -42,8 +59,16 @@
   background-image: url("/assets/gifs/electric.gif");
 }
 
+.card-content.bgi_electric:hover {
+  color: white;
+}
+
 .card-content:hover.bgi_ground {
   background-image: url("/assets/gifs/ground.gif");
+}
+
+.card-content.bgi_ground:hover .pokemon-info {
+  color: white;
 }
 
 .card-content:hover.bgi_fairy {
@@ -54,6 +79,10 @@
   background-image: url("/assets/gifs/fighting.gif");
 }
 
+.card-content.bgi_fighting:hover {
+  color: white;
+}
+
 .card-content:hover.bgi_psychic {
   background-image: url("/assets/gifs/circles.gif");
 }
@@ -62,8 +91,16 @@
   background-image: url("/assets/gifs/rock.gif");
 }
 
+.card-content.bgi_rock:hover .pokemon-info {
+  color: white;
+}
+
 .card-content:hover.bgi_ghost {
   background-image: url("/assets/gifs/ghost.gif");
+}
+
+.card-content.bgi_ghost:hover {
+  color: black;
 }
 
 .card-content:hover.bgi_ice {
@@ -74,10 +111,22 @@
   background-image: url("/assets/gifs/dragon.gif");
 }
 
+.card-content.bgi_dragon:hover {
+  color: white;
+}
+
 .card-content:hover.bgi_dark {
   background-image: url("/assets/gifs/dark.gif");
 }
 
+.card-content.bgi_dark:hover {
+  color: white;
+}
+
 .card-content:hover.bgi_steel {
   background-image: url("/assets/gifs/rock.gif");
+}
+
+.card-content.bgi_steel:hover .pokemon-info {
+  color: white;
 }

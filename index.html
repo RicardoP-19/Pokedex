@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="style/overlay/moves.css">
     <link rel="stylesheet" href="style/overlay/stats.css">
     <link rel="stylesheet" href="style/overlay/evolution.css">
+    <link rel="stylesheet" href="style/scrollbar.css">
     <script defer src="script.js"></script>
     <script src="scripts/templates.js"></script>
     <script defer src="scripts/search.js"></script>
@@ -25,11 +26,11 @@
 
   <body onload="init()">
       <header class="content">
-        <div id="header" class="header-main-content">
-          <div class="headline-content">
+        <div id="header" class="header-main-content d-all-center">
+          <div class="headline-content d-flex ">
             <div class="headline">Pokedex</div>
           </div>
-          <div class="input-content">
+          <div class="input-content d-flex ">
             <input
               id="searchPokemon"
               placeholder="Search Pokemon..."
@@ -41,13 +42,13 @@
 
       <main class="content">
         <section id="loading">
-          <div class="loader">
+          <div class="loader d-all-center height">
             <img src="/assets/gifs/loader.gif">
             <h1>Loading ...</h1>
           </div>
         </section>
         <section id="mainSection" class="d-none">
-            <div id="pokemon" class="main-content"></div>
+            <div id="pokemon" class="main-content d-flex"></div>
             <div class="btn-container">
               <button onclick="fetchPokemonApi()">More Pokemons</button>
             </div>
@@ -60,8 +61,8 @@
         </section>
         <section id="overlay" class="d-none width height">
             <div class="height">
-              <div onclick="closeOverlay()" class="overlay-image">
-                <div onclick="stopBubblingProtection(event)" class="overlay-content" id="overlayCard">
+              <div onclick="closeOverlay()" class="overlay-image d-all-center width">
+                <div onclick="stopBubblingProtection(event)" class="overlay-content d-all-center" id="overlayCard">
   
                 </div>
               </div>
@@ -70,13 +71,7 @@
       </main>
 
       <footer class="content" id="footer">
-        <!-- <div>
-          <span>Design By Ricardo Pinto</span>
-        </div> -->
-        <!-- <div>
-          <span>&copy; 2024</span>
-        </div> -->
-        <div class="footer-info">
+        <div class="footer-info d-flex width">
           <span class="margin">Design By Ricardo Pinto</span>
           <a class="margin" href="https://github.com/RicardoP-19" target="_blank"><img src="/assets/icons/github.png"></a>
           <a class="margin" href="https://www.facebook.com/" target="_blank"><img src="/assets/icons/facebook.png"></a>

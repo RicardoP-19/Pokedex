@@ -12,13 +12,7 @@
 }
 
 .card-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
   padding-top: 12px;
-  color: white;
-  filter: drop-shadow(5px 5px 4px black);
 }
 
 .head-right {
@@ -49,10 +43,6 @@
 }
 
 .pokemon-info {
-  display: flex;
   align-items: center;
-  height: 100%;
-  color: white;
   text-align: center;
-  filter: drop-shadow(5px 5px 4px black);
 }
