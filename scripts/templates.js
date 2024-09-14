@@ -9,7 +9,7 @@ function returnHTMLPokemon(index) {
                 ${allPokemons[index][0].types.join(' ')}
               </span>
             </div>
-            <div class="card-image">
+            <div class="card-image d-flex">
               <img src="${allPokemons[index][0].image}"/>
             </div>
             <div class="card-info">
@@ -37,7 +37,7 @@ function returnSearchHTMLPokemon(index) {
                 ${searchPokemon[index][0].types.join(' ')}
               </span>
             </div>
-            <div class="card-image">
+            <div class="card-image d-flex">
               <img src="${searchPokemon[index][0].image}"/>
             </div>
             <div class="card-info">
@@ -56,7 +56,7 @@ function returnSearchHTMLPokemon(index) {
 
 function returnHTMLOverlayCard(index) {
   return /*html*/`
-      <div><img onclick="nextCard(${allPokemons[index][0].id}, 1)" class="arrow d-flex" src="/assets/icons/left.png" /></div>
+      <img class="arrow-left" onclick="nextCard(${allPokemons[index][0].id}, 1)" src="/assets/icons/left.png" />
         <div class="card-overlay">
           <div class="card-content-overlay bgi_${allPokemons[index][0].types[0]}">
             <div class="card-head-overlay d-flex width">
@@ -98,7 +98,7 @@ function returnHTMLOverlayCard(index) {
             </div>
           </div>
         </div>
-      <div><img onclick="nextCard(${allPokemons[index][0].id}, 2)" class="arrow d-flex" src="/assets/icons/right.png" /></div>
+      <img class="arrow-right" onclick="nextCard(${allPokemons[index][0].id}, 2)" src="/assets/icons/right.png" />
     `;
 }
 

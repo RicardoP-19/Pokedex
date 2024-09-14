@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="style/overlay/stats.css">
     <link rel="stylesheet" href="style/overlay/evolution.css">
     <link rel="stylesheet" href="style/scrollbar.css">
+    <link rel="stylesheet" href="style/responsiv.css">
     <script defer src="script.js"></script>
     <script src="scripts/templates.js"></script>
     <script defer src="scripts/search.js"></script>
@@ -54,13 +55,13 @@
             </div>
         </section>
         <section id="searchSection" class="d-none">
-            <div id="searchList" class="main-content"></div>
+            <div id="searchList" class="main-content d-flex"></div>
             <div class="btn-container">
               <button onclick="backToStart()">Back To Start</button>
             </div>
         </section>
         <section id="overlay" class="d-none width height">
-            <div class="height">
+            <div class="width height">
               <div onclick="closeOverlay()" class="overlay-image d-all-center width">
                 <div onclick="stopBubblingProtection(event)" class="overlay-content d-all-center" id="overlayCard">
   

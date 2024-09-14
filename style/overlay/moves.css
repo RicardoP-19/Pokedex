@@ -6,10 +6,15 @@
 }
 
 .move {
-  flex: 1 1 calc(33.333% - 10px);
+  flex: 1 1 calc(33.333% - 6px);
   box-sizing: border-box;
   background-color: lightslategray;
   border: 1px solid white;
   border-radius: 8px;
   padding: 4px;
+  text-align: center;
+}
+
+.move p {
+  margin: 0 !important;
 }

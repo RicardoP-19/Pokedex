@@ -67,10 +67,7 @@ input::placeholder {
 
 main {
   width: 100%;
-  flex: 1 !important; 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  flex: 1 !important;
 }
 
 #loading {

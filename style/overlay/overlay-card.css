@@ -1,6 +1,4 @@
 .overlay-content {
-  width: 50%;
-  height: 50%;
   animation: myOverlay 1s ease-in-out 0s 1 normal forwards;
 }
 
@@ -16,9 +14,13 @@
 	}
 }
 
-.arrow {
-  justify-content: center;
-  width: 50%;
+.arrow-left {
+  width: 70px;
+  cursor: pointer;
+}
+
+.arrow-right {
+  width: 70px;
   cursor: pointer;
 }
 
@@ -26,8 +28,8 @@
   position: relative;
   display: flex;
   justify-content: center;
-  width: 470px;
-  height: 650px;
+  width: 400px;
+  height: 600px;
   background-color: #ffe659;
   border-radius: 8px;
   z-index: 2;
