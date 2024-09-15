@@ -116,5 +116,5 @@ function renderImages(index) {
   for (let index = 0; index < evolutionArray.length; index++) {
     let image = evolutionArray[index] 
     imagesContent.innerHTML += returnHTMLRenderImages(image);    
-  }
+  };
 }
