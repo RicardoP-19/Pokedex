@@ -21,6 +21,7 @@ function foundPokemon(result) {
       noFoundPokemon();
     };
   };
+  document.getElementById('searchPokemon').value = '';
 }
 
 
@@ -56,7 +57,6 @@ function renderSearchPokemon() {
     document.getElementById('searchSection').classList.remove('d-none');
     newSearchPokemon.innerHTML += returnSearchHTMLPokemon(index);
   };
-  // document.getElementById('searchPokemon').value = '';
 }
 
 
