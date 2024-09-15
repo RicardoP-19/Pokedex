@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="style/overlay/evolution.css">
     <link rel="stylesheet" href="style/scrollbar.css">
     <link rel="stylesheet" href="style/responsiv.css">
+    <link rel="stylesheet" href="style/noFound.css">
     <script defer src="script.js"></script>
     <script src="scripts/templates.js"></script>
     <script defer src="scripts/search.js"></script>
@@ -54,11 +55,12 @@
               <button onclick="fetchPokemonApi()">More Pokemons</button>
             </div>
         </section>
-        <section id="searchSection" class="d-none">
+        <section id="searchSection" class="d-none height">
             <div id="searchList" class="main-content d-flex"></div>
-            <div class="btn-container">
+            <div id="backBtn" class="btn-container">
               <button onclick="backToStart()">Back To Start</button>
             </div>
+            <div id="noFound" class="noFound d-flex height"></div>
         </section>
         <section id="overlay" class="d-none width height">
             <div class="width height">

@@ -1,0 +1,23 @@
+.noFound {
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: black;
+}
+
+.no-found-info {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: grey;
+}
+
+.no-found-info p {
+  flex-direction: column;
+  color: white;
+  font-size: large;
+  font-weight: 800;
+}
+
+.image {
+  width: 24%;
+}

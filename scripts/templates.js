@@ -54,6 +54,22 @@ function returnSearchHTMLPokemon(index) {
 }
 
 
+function returnHTMLnoFoundPokemon() {
+  return /*html*/ `
+      <div class="no-found-info height d-flex">
+        <div class="d-all-center">
+          <img class="image" src="/assets/img/pokemon-title.png">
+        </div>
+        <div>
+        <p>No Found</p>
+        </div>
+      </div>
+      <div class="btn-container">
+        <button onclick="backToStart()">Back To Start</button>
+      </div>
+  `;
+}
+
 function returnHTMLOverlayCard(index) {
   return /*html*/`
       <img class="arrow-left" onclick="nextCard(${allPokemons[index][0].id}, 1)" src="/assets/icons/left.png" />
