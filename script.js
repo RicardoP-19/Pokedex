@@ -111,9 +111,14 @@ async function chainFetchUrls(pokemonEvolutionUrl) {
 
 async function evolutionUrls(chainData) {
   try {
-    await firstSpeciesUrl(chainData);
-    await secondSpeciesUrl(chainData);
-    await lastSpeciesUrl(chainData);
+    if (chainData.chain['evolves_to'][0].evolves_to.length > 0) {
+      await firstSpeciesUrl(chainData);
+      await secondSpeciesUrl(chainData);
+      await lastSpeciesUrl(chainData);
+    } else {
+      await firstSpeciesUrl(chainData);
+      await secondSpeciesUrl(chainData);
+    }
     } catch (error) {
     console.error(error);    
   };
@@ -160,7 +165,7 @@ async function fetchPokemonImage(speciesUrl) {
 
 
 function pushEvolution() {
-  let evolution = evolutionImages
+  let evolution = evolutionImages;
   pokemonInfos.push(evolution);  
   evolutionImages = [];  
   pokemonpush();

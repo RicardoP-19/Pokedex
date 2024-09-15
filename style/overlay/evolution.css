@@ -1,9 +1,9 @@
-.info-content img {
-  width: 22%;
+.evolution-content {
+  align-items: center;
 }
 
-.arrow-evo {
-  width: 2rem !important;
+.evolution-content img {
+  width: 85%;
 }
 
 .box-animation {

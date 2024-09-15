@@ -47,7 +47,7 @@ function openInfo(index, num) {
   } else if (num == 2) {
     openStatsContent(index);
   } else if (num == 3) {
-    openEvolutionContent();
+    openEvolutionContent(index);
   };
 }
 
@@ -68,7 +68,7 @@ function renderMoves(index) {
   if (movesContent) {
     for (let index = 0; index < movelist.length; index++) {
       let move = movelist[index];
-      movesContent.innerHTML += returnHTMLrenderMoves(move);
+      movesContent.innerHTML += returnHTMLRenderMoves(move);
     };
   };
 }
@@ -94,15 +94,27 @@ function renderStats(index) {
     for (let i = 0; i < length; i++) {
       let statsName = stats[i];
       let baseNum = base_stat[i];
-      statContent.innerHTML += returnHTMLrenderStats(statsName, baseNum);
+      statContent.innerHTML += returnHTMLRenderStats(statsName, baseNum);
     };
   };
 } 
 
 
-function openEvolutionContent() {
+function openEvolutionContent(index) {
   document.getElementById('moveInfo').classList.add('d-none');
   document.getElementById('stats').classList.add('d-none');
   document.getElementById('evolution').classList.add('box-animation');
   document.getElementById('evolution').classList.remove('d-none');
+  renderImages(index);
+}
+
+
+function renderImages(index) {
+  let imagesContent = document.getElementById('evolution');
+  imagesContent.innerHTML = '';
+  evolutionArray = allPokemons[index][1];
+  for (let index = 0; index < evolutionArray.length; index++) {
+    let image = evolutionArray[index] 
+    imagesContent.innerHTML += returnHTMLRenderImages(image);    
+  }
 }

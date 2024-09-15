@@ -101,14 +101,7 @@ function returnHTMLOverlayCard(index) {
                   <div id="statsContent" class="d-all-center">                    
                   </div>
                 </div>
-                <div id="evolution" class="d-none">
-                  <div class="d-all-center">
-                    <img src="${allPokemons[index][1][0]}">
-                    <img class="arrow-evo" src="/assets/icons/arrow.png">
-                    <img src="${allPokemons[index][1][1]}">
-                    <img class="arrow-evo" src="/assets/icons/arrow.png">
-                    <img src="${allPokemons[index][1][2]}">
-                  </div>
+                <div id="evolution" class="evolution-content d-flex d-none">
                 </div>
               </div>
             </div>
@@ -119,7 +112,7 @@ function returnHTMLOverlayCard(index) {
 }
 
 
-function returnHTMLrenderMoves(move) {
+function returnHTMLRenderMoves(move) {
   return /*html*/ `
         <div class="move d-all-center">
           <p>${move}</p>
@@ -128,7 +121,7 @@ function returnHTMLrenderMoves(move) {
 }
 
 
-function returnHTMLrenderStats(statsName, baseNum) {
+function returnHTMLRenderStats(statsName, baseNum) {
   return /*html*/ `
       <div class="stats-div width d-flex">
         <div class="stats-name">                   
@@ -140,5 +133,14 @@ function returnHTMLrenderStats(statsName, baseNum) {
           </div>
         </div>
       </div>
+  `;
+}
+
+
+function returnHTMLRenderImages(image) {
+  return /*html*/ `
+    <div class="d-all-center">
+      <img src="${image}">
+    </div>
   `;
 }
