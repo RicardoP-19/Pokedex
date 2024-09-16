@@ -3,7 +3,7 @@ let searchPokemon = [];
 let pokemonInfos = [];
 let evolutionImages = [];
 let offset = 0;
-let limit = 30;
+let limit = 20;
 let BASE_URL = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`;
 
 
